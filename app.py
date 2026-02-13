@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # Aapki Nayi API Key
-API_KEY = "AIzaSyC_sPaee7sikjlMeuM3fn_ZyBHcyKYEp18"
+API_KEY = "st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=API_KEY)
 
 # Smart Model Setup: Ye khud dhoond lega ki kaunsa model chal raha hai
@@ -44,4 +44,5 @@ if prompt := st.chat_input("Dost, puchiye kuch bhi..."):
             st.markdown(response.text)
             st.session_state.messages.append({"role": "assistant", "content": response.text})
         except Exception as e:
+
             st.error(f"Error: {e}")
